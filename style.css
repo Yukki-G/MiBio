@@ -115,7 +115,7 @@ main {
 
 .angel {
     position: relative;
-    font-size: clamp(14px, 4.5vw, 24px);
+    font-size: clamp(14px, 4vw, 24px);
     width: 18.75em;
     height: 18.75em;
     max-width: 100%;
@@ -257,34 +257,38 @@ h3 {
     }
 }
 
+/* Cajas de links */
 
 .contain-links {
-    padding-top: 2rem;
+    padding-top: clamp(1rem, 4vw, 2rem);
     width: min(100%, 28rem);
-    gap: 1.6rem;
+    gap: clamp(0.8rem, 3vw, 1.6rem);
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .links {
+    --alto: clamp(3rem, 11vw, 4rem); 
+
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 4rem;
-    padding: 0.5rem 4rem; 
+    min-height: var(--alto);           /* min-height, no height */
+    padding: 0.4rem var(--alto);       /* deja lugar al icono a los lados */
     border-radius: 1rem;
     border: 1.5px solid #fff;
-    text-shadow: 
-        0 0 5px #b3e5fc, 
-        0 0 10px #81d4fa, 
-        2px 2px 0px #333;
-    box-shadow: 
-        0 0 5px #b3e5fc, 
-        0 0 10px #81d4fa, 
-        2px 2px 0px #333;
-    backdrop-filter: blur(5px); 
+    text-shadow:
+        0 0 5px #b3e5fc,
+        0 0 10px #81d4fa,
+        2px 2px 0 #333;
+    box-shadow:
+        0 0 5px #b3e5fc,
+        0 0 10px #81d4fa,
+        2px 2px 0 #333;
+    backdrop-filter: blur(5px);
+    transition: translate 0.3s ease, box-shadow 0.3s ease;
 }
 
 .links:hover {
@@ -292,31 +296,26 @@ h3 {
     box-shadow:
         0 0 10px #e1f5fe,
         0 0 22px #81d4fa,
-        2px 2px 0px #333;
-    transition: translate 0.3s ease;
+        2px 2px 0 #333;
 }
 
 .links img {
     position: absolute;
-    left: 0.75rem;
+    left: calc(var(--alto) * 0.15);
     top: 50%;
     transform: translateY(-50%);
-    width: clamp(1.5rem, 12vw, 3.3rem);
-    height: auto;
-    aspect-ratio: 1/1;
-    object-fit: cover
-}
-
-.links a {
-    text-decoration: none;
+    height: calc(var(--alto) * 0.7);   /* 70% de la caja, sin importar el tamaño */
+    width: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
 .links p {
     text-align: center;
-    font-size: clamp(0.8rem, 3vw, 1.5rem);
-    line-height: 1.6;
+    font-size: clamp(0.9rem, 3.8vw, 1.5rem);
+    line-height: 1.4;
     letter-spacing: 0.05em;
-    color: #fff; 
+    color: #fff;
     font-weight: 400;
     margin: 0;
 }
