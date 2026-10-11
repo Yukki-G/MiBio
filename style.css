@@ -301,7 +301,7 @@ h3 {
 
 .links img {
     position: absolute;
-    left: calc(var(--alto) * 0.15);
+    left: calc(var(--alto) * 0.15); 
     top: 50%;
     transform: translateY(-50%);
     height: calc(var(--alto) * 0.7);   /* 70% de la caja, sin importar el tamaño */
@@ -318,6 +318,10 @@ h3 {
     color: #fff;
     font-weight: 400;
     margin: 0;
+}
+
+.links a {
+    text-decoration: none;
 }
 
 /* Animacion cursor */
